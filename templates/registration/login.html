@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block additional_styles %}
+    <style>
+        body {
+            background-image: url(/static/img/sf_logo4.jpg);
+    }
+    </style>
+    {% endblock %}
+
+{% block content %}
+    <div class="container border border-success rounded py-3" style="max-width: 30%;">
+        <h2>Log In</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <br>
+            <button class="btn submit_btn" type="submit">Log In</button>
+        </form>
+    </div>
+{% endblock content %}
